@@ -33,7 +33,8 @@
       "prettier/prettier": "error",
       "class-methods-use-this":"off",
       "no-console":"off",
-      "camelcase": "off"
+      "camelcase": "off",
+      "no-underscore-dangle": "off"
     },
     "settings": {
       "import/resolver": {

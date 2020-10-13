@@ -17,12 +17,12 @@ class SigInServices {
   }
   // eslint-disable-next-line
   async execute({ email, password }: UserAuthDTO): Promise<any> {
-    const user = this.repository.findByEmail(email);
+    const user = await this.repository.findByEmail(email);
 
     if (!user) {
       return { error: 'email is not found' };
     }
-    console.log(user);
+    // const passwordMatch = this.cryptPovider.compare(password, )
     return user;
   }
 }

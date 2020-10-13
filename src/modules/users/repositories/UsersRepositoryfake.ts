@@ -14,7 +14,7 @@ class UsersRepositoryfake {
     return user;
   }
   /* eslint-disable-next-line */
-  async findByEmail(email: string) {
+  async findByEmail(email: string):Promise<UserDataDTO> {
     const user =
       email === 'exist@email.com'
         ? {

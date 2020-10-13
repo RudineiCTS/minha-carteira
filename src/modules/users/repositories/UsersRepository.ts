@@ -5,6 +5,12 @@ interface UserDataDTO {
   email: string;
   password: string;
 }
+interface userCallback {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+}
 
 class UsersRepository {
   /* eslint-disable-next-line */
@@ -29,12 +35,17 @@ class UsersRepository {
     return userFormatted;
   }
   /* eslint-disable-next-line */
-  async findByEmail(email: string) {
+  async findByEmail(email: string):Promise<userCallback> {
     const user = await databaseconnection
       .collection('users')
       .findOne({ email });
 
-    return user;
+    const userFormated = {
+      id: user._id,
+      ...user,
+    };
+    delete userFormated._id;
+    return userFormated;
   }
 }
 

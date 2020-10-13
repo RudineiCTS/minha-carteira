@@ -6,5 +6,11 @@ class Bcrypt {
 
     return hashed;
   }
+
+  async compare(password: string, passwordCompare: string): Promise<boolean> {
+    const passwordMatch = bcrypt.compare(password, passwordCompare);
+
+    return passwordMatch;
+  }
 }
 export default Bcrypt;
