@@ -15,7 +15,14 @@ class UsersRepositoryfake {
   }
   /* eslint-disable-next-line */
   async findByEmail(email: string) {
-    const user = email === 'exist@email.com' ? email : null;
+    const user =
+      email === 'exist@email.com'
+        ? {
+            id: 'any_id',
+            email,
+            password: 'any_password',
+          }
+        : null;
     return user;
   }
 }

@@ -22,6 +22,7 @@ class SigInServices {
     if (!user) {
       return { error: 'email is not found' };
     }
+    console.log(user);
     return user;
   }
 }

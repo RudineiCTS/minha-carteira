@@ -5,7 +5,7 @@ import HashProvider from '../providers/HashProvider/model/HashProviderModel';
 describe('SigInService', () => {
   it('should be able user login if email and password match', async () => {
     const data = {
-      email: 'any_email@email',
+      email: 'exist@email.com',
       password: 'any_pass',
     };
 
