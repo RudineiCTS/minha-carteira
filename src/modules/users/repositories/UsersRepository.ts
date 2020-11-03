@@ -1,12 +1,7 @@
 import databaseconnection from '../../../infra/database/mongoose';
 
 interface UserDataDTO {
-  name: string;
-  email: string;
-  password: string;
-}
-interface userCallback {
-  id: string;
+  _id: string;
   name: string;
   email: string;
   password: string;
@@ -14,7 +9,7 @@ interface userCallback {
 
 class UsersRepository {
   /* eslint-disable-next-line */
-  async add(userDataRequest: UserDataDTO) {
+  async add(userDataRequest: Omit<UserDataDTO, '_id'>){
     const userData = userDataRequest;
     const user = await databaseconnection
       .collection('users')
@@ -23,29 +18,16 @@ class UsersRepository {
         return response;
       });
 
-    const userFormatted = {
-      /* eslint-disable-next-line */
-      id: user.ops[0]._id,
-      ...user.ops[0],
-    };
-
-    delete userFormatted.password;
-    /* eslint-disable-next-line */
-    delete userFormatted._id;
-    return userFormatted;
+    const userFomated = { ...user.ops[0] };
+    return userFomated;
   }
   /* eslint-disable-next-line */
-  async findByEmail(email: string):Promise<userCallback> {
+  async findByEmail(email: string):Promise<UserDataDTO | null> {
     const user = await databaseconnection
       .collection('users')
       .findOne({ email });
 
-    const userFormated = {
-      id: user._id,
-      ...user,
-    };
-    delete userFormated._id;
-    return userFormated;
+    return user || null;
   }
 }
 

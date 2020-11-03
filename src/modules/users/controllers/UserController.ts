@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import BcryptProvider from '../providers/HashProvider/implementations/Bcrypt';
 import SingUpServices from '../services/SingUpServices';
 import UserRepository from '../repositories/UsersRepository';
+import UserView from '../views/UserView';
 
 class UserController {
   async create(request: Request, response: Response) {
@@ -30,7 +31,7 @@ class UserController {
       password,
     });
 
-    return response.json(userResponse);
+    return response.json(UserView.render(userResponse));
   }
 }
 

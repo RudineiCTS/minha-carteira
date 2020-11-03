@@ -13,12 +13,13 @@ class UsersRepositoryfake {
     };
     return user;
   }
-  /* eslint-disable-next-line */
-  async findByEmail(email: string):Promise<UserDataDTO> {
+
+  async findByEmail(email: string): Promise<UserDataDTO | null> {
     const user =
       email === 'exist@email.com'
         ? {
             id: 'any_id',
+            name: 'any_user_name',
             email,
             password: 'any_password',
           }

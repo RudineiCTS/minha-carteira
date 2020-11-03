@@ -6,7 +6,8 @@
   "scripts": {
     "start": "tsnd src/infra/http/server.ts --transpile-only --ignore-watch node_modules --respawn",
     "test": "jest",
-    "test:commit": "jest --passWithNoTests"
+    "test:commit": "jest --passWithNoTests",
+    "coverage:report":"jest --coverage"
   },
   "husky": {
     "hooks": {

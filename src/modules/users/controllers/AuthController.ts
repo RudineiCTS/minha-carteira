@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import BcryptProvider from '../providers/HashProvider/implementations/Bcrypt';
 import SigInServices from '../services/SigInServices';
 import UserRepository from '../repositories/UsersRepository';
+import UserView from '../views/UserView';
 
 class AuthController {
   async create(request: Request, response: Response) {
@@ -17,7 +18,7 @@ class AuthController {
 
     const user = await sigInServices.execute({ email, password });
 
-    return response.json(user);
+    return response.json(UserView.render(user));
   }
 }
 export default new AuthController();

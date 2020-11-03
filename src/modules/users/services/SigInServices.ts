@@ -1,5 +1,6 @@
 import UserRepository from '../repositories/UsersRepository';
 import Bcrypt from '../providers/HashProvider/implementations/Bcrypt';
+import UsersRepositoryfake from '../repositories/UsersRepositoryfake';
 
 interface UserAuthDTO {
   email: string;
@@ -11,7 +12,10 @@ class SigInServices {
 
   cryptPovider;
 
-  constructor(Repository: UserRepository, CryptProvider: Bcrypt) {
+  constructor(
+    Repository: UserRepository | UsersRepositoryfake,
+    CryptProvider: Bcrypt,
+  ) {
     this.repository = Repository;
     this.cryptPovider = CryptProvider;
   }
