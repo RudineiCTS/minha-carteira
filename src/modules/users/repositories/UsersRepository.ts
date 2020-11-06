@@ -1,15 +1,10 @@
 import databaseconnection from '../../../infra/database/mongoose';
-
-interface UserDataDTO {
-  _id: string;
-  name: string;
-  email: string;
-  password: string;
-}
+import UserInterface from '../model/UserInterface';
 
 class UsersRepository {
-  /* eslint-disable-next-line */
-  async add(userDataRequest: Omit<UserDataDTO, '_id'>){
+  async add(
+    userDataRequest: Omit<UserInterface, '_id'>,
+  ): Promise<UserInterface> {
     const userData = userDataRequest;
     const user = await databaseconnection
       .collection('users')
@@ -21,8 +16,8 @@ class UsersRepository {
     const userFomated = { ...user.ops[0] };
     return userFomated;
   }
-  /* eslint-disable-next-line */
-  async findByEmail(email: string):Promise<UserDataDTO | null> {
+
+  async findByEmail(email: string): Promise<UserInterface | null> {
     const user = await databaseconnection
       .collection('users')
       .findOne({ email });

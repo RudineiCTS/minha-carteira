@@ -1,14 +1,14 @@
 interface UserDataDTO {
-  id: string;
+  _id: string;
   name: string;
   email: string;
   password: string;
 }
 
 class UsersRepositoryfake {
-  async add(userDataRequest: Omit<UserDataDTO, 'id'>): Promise<UserDataDTO> {
+  async add(userDataRequest: Omit<UserDataDTO, '_id'>): Promise<UserDataDTO> {
     const user = {
-      id: 'any_id',
+      _id: 'any_id',
       ...userDataRequest,
     };
     return user;
@@ -18,7 +18,7 @@ class UsersRepositoryfake {
     const user =
       email === 'exist@email.com'
         ? {
-            id: 'any_id',
+            _id: 'any_id',
             name: 'any_user_name',
             email,
             password: 'any_password',

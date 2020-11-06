@@ -31,7 +31,7 @@ class UserController {
       password,
     });
 
-    return response.json(UserView.render(userResponse));
+    return response.json(userResponse);
   }
 }
 

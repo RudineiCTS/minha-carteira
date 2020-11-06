@@ -7,7 +7,7 @@
     "start": "tsnd src/infra/http/server.ts --transpile-only --ignore-watch node_modules --respawn",
     "test": "jest",
     "test:commit": "jest --passWithNoTests",
-    "coverage:report":"jest --coverage"
+    "coverage:report": "jest --coverage"
   },
   "husky": {
     "hooks": {
@@ -22,15 +22,20 @@
     ]
   },
   "dependencies": {
-    "@types/express": "^4.17.7",
-    "@types/mongoose": "^5.7.36",
     "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.10.3"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.3",
+    "yup": "^0.29.3"
   },
   "devDependencies": {
+    "@types/express": "^4.17.7",
+    "@types/mongoose": "^5.7.36",
+    "@types/yup": "^0.29.9",
     "@types/bcrypt": "^3.0.0",
     "@types/jest": "^26.0.14",
+    "@types/jsonwebtoken": "^8.5.0",
     "@types/mocha": "^8.0.3",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",

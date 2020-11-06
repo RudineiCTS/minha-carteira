@@ -1,6 +1,7 @@
 import UsersRepository from '../repositories/UsersRepository';
 import UsersRepositoryfake from '../repositories/UsersRepositoryfake';
 import Bcrypt from '../providers/HashProvider/implementations/Bcrypt';
+import UserInterface from '../model/UserInterface';
 
 interface UserDataDTO {
   name: string;
