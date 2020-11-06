@@ -35,7 +35,7 @@ class SigInServices {
       user.password,
     );
     if (!passwordMatch) {
-      throw Error('email is not found');
+      throw Error('password incorrect');
     }
 
     const token = await this.Token.generate(String(user._id));
