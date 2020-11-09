@@ -9,6 +9,7 @@ export default {
       emai: user.email,
     };
   },
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   renderToken(user: UserInterface, token: string) {
     const userFormated = this.render(user);
     return {

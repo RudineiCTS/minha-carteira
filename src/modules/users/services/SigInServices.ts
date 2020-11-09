@@ -40,7 +40,6 @@ class SigInServices {
 
     const token = await this.Token.generate(String(user._id));
 
-    console.log(token);
     return { user, token };
   }
 }
