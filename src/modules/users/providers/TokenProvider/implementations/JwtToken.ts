@@ -1,11 +1,10 @@
 import { sign } from 'jsonwebtoken';
-import authToken from '../../../../../config/auth';
 
 class JwtToken {
   async generate(userId: string): Promise<string> {
-    const token = sign({}, String(authToken.jwt.secret), {
+    const token = sign({}, String(process.env.KEY_SECRET_TOKEN), {
       subject: String(userId),
-      expiresIn: authToken.jwt.expiresIn || '1d',
+      expiresIn: process.env.EXPIRES_IN_TOKEN || '1d',
     });
     console.log(process.env.KEY_SECRET_TOKEN);
     return token;

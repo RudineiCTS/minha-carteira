@@ -6,14 +6,14 @@ export default {
     return {
       id: user._id,
       name: user.name,
-      emai: user.email,
+      email: user.email,
     };
   },
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  renderToken(user: UserInterface, token: string) {
-    const userFormated = this.render(user);
+  renderToken(userDTO: UserInterface, token: string) {
+    const user = this.render(userDTO);
     return {
-      userFormated,
+      user,
       token,
     };
   },
