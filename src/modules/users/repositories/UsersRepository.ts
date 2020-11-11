@@ -8,10 +8,7 @@ class UsersRepository {
     const userData = userDataRequest;
     const user = await databaseconnection
       .collection('users')
-      .insertOne(userData)
-      .then(response => {
-        return response;
-      });
+      .insertOne(userData);
 
     const userFomated = { ...user.ops[0] };
     return userFomated;
