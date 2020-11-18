@@ -25,5 +25,17 @@ class financeRepository {
 
     return movimentFomated;
   }
+  async list(id:string, frequency: string, type:string){
+    const movimentList = databaseconnection
+      .collection('moviment')
+      .find({
+        user_id: { $eq: id },
+        type: { $eq: type },
+        frequency: { $eq: frequency },
+      })
+      .toArray();
+
+    return movimentList;
+  }
 }
 export default financeRepository;

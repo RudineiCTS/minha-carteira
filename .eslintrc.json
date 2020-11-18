@@ -34,7 +34,8 @@
     "class-methods-use-this":"off",
     "no-console":"off",
     "camelcase": "off",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "import/no-cycle": "off"
 
   },
   "settings": {

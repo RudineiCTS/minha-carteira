@@ -28,12 +28,23 @@ class MovimentController {
   async index(request:Request, response:Response){
   const {type, frequency} = request.query;
 
+  if(!type) return response.json({message: "selecione um tipo"})
+  if(!frequency) return response.json({message: "selecione uma frequencia"})
+
+
   const financeRepository = new FinanceRepository();
   const movimentIndex = new MovimentIndex(financeRepository);
 
-  const movimentList = await movimentIndex.execute({type, frequency})
+  const typeFormated = String(type);
+  const frequencyFormated = String(frequency);
 
-  return movimentList;
+  const movimentList = await movimentIndex.execute({
+    type: typeFormated,
+    frequency:frequencyFormated,
+    user_id: request.user.id
+  })
+
+  return response.json(movimentList);
 
   }
 }
